@@ -1,0 +1,100 @@
+{
+  "_meta": {
+    "name": "FlameGuard lessons learned from spacecraft fire incidents",
+    "generated": "2026-11-14",
+    "integrity_rule": "Facts come from the cited pages. Fields marked source_quality=secondary come from non-NASA pages and should be double-checked before putting them in the final report. Section 'design_takeaways' is OUR interpretation, not official NASA procedure.",
+    "warning": "Educational research content. Not an operational fire-response procedure."
+  },
+
+  "incidents": [
+    {
+      "id": "APOLLO-1",
+      "date": "1967-01-27",
+      "type": "Cabin fire (ground test, not microgravity)",
+      "environment": {"atmosphere": "100% oxygen", "pressure_psi": 16.7, "pressure_kpa": 115},
+      "facts": [
+        {"fact": "Fire swept the capsule in seconds, fed by about 70 lb of flammable material (nylon netting, Velcro) and pure oxygen.", "source": "https://appel.nasa.gov/2019/01/31/this-month-in-nasa-history-tragedy-strikes-the-apollo-program", "source_quality": "NASA"},
+        {"fact": "Opening the hatch took at least 90 seconds, while the fire consumed the cabin oxygen in about 25 seconds.", "source": "https://appel.nasa.gov/2019/01/31/this-month-in-nasa-history-tragedy-strikes-the-apollo-program", "source_quality": "NASA"},
+        {"fact": "Investigators concluded a spark in the electrical system was the likely ignition source; they could not pinpoint the exact spot.", "source": "https://www.nbcnews.com/id/wbna46164811", "source_quality": "secondary"},
+        {"fact": "Cabin pressure rose rapidly during the fire (reported from 16.7 psi to over 29 psi), which kept the inward-opening hatch sealed.", "source": "https://orbitcodex.com/knowledge-base/apollo-1-fire", "source_quality": "secondary"}
+      ],
+      "changes_made": [
+        "Ground-test atmosphere changed from pure oxygen to a nitrogen/oxygen mix (NASA agreed on a 60/40 O2/N2 launch atmosphere on 1968-03-14).",
+        "Hatch redesigned to open outward for fast egress.",
+        "Flammable interior materials replaced with self-extinguishing alternatives; wiring and plumbing rerouted.",
+        "NASA safety culture changed: Senate review found many people failed to recognize a hazardous situation."
+      ],
+      "changes_source": ["https://www.aip.org/news/trial-fire-legacy-apollo-1", "https://llmpedia.scads.ai/gpt-5-mini/Apollo_1_fire.html"]
+    },
+    {
+      "id": "APOLLO-13",
+      "date": "1970-04-13 (56 h into flight)",
+      "type": "Electrically initiated fire inside an oxygen tank (not a cabin fire)",
+      "environment": {"location": "Service Module oxygen tank 2", "medium": "liquid/supercritical oxygen", "microgravity_relevance": "In transit to the Moon; tank fans were used to stir the oxygen."},
+      "facts": [
+        {"fact": "Review board concluded an electrically initiated fire in oxygen tank 2 caused the accident.", "source": "https://www.britannica.com:443/topic/Apollo-13-mission/Reentry-and-splashdown", "source_quality": "secondary"},
+        {"fact": "Damaged Teflon insulation on wiring inside the tank shorted and ignited; the fire raised pressure until the tank burst (overpressure, not a chemical explosion).", "source": "https://appel.nasa.gov/2023/04/10/this-month-in-nasa-history-investigating-apollo-13", "source_quality": "NASA"},
+        {"fact": "Heater thermostat switches were welded closed during ground testing; the heater probably reached about 500 C (1,000 F) but the gauge only read up to 85 F, so crews did not notice.", "source": "https://www.nasa.gov/?p=168445", "source_quality": "NASA"},
+        {"fact": "Board recommended redesign of the oxygen storage system and minimizing combustible items inside the tank (done for Apollo 14).", "source": "https://www.nasa.gov/history/50-years-ago-apollo-13-review-board-report", "source_quality": "NASA"}
+      ],
+      "note_for_team": "Apollo 13 is an oxygen-fed fire in a closed tank, not a flame in the crew cabin. It still teaches the same rule as Apollo 1: oxygen-rich spaces plus damaged insulation plus a spark is dangerous."
+    },
+    {
+      "id": "MIR-1997",
+      "date": "1997-02-24",
+      "type": "Fire in orbit (microgravity) from a solid-fuel oxygen generator (Vika/SFOG candle)",
+      "environment": {"location": "Mir, Kvant-1 module", "crew": 6},
+      "facts": [
+        {"fact": "A canister burst into flame, shooting a flame about three feet long with sparks and molten metal and producing dense smoke.", "source": "https://www.nasa.gov/?p=96281", "source_quality": "NASA"},
+        {"fact": "The flame blocked the path to the docked Soyuz escape vehicle.", "source": "https://www.nasa.gov/?p=96281", "source_quality": "NASA"},
+        {"fact": "The candle type had been used more than 2,500 times without incident.", "source": "https://www.nasa.gov/?p=96281", "source_quality": "NASA"},
+        {"fact": "Crew put on masks and fought the fire with foam extinguishers; the station life support cleared smoke over several hours.", "source": "https://www.nasa.gov/feature/25-years-ago-fire-aboard-space-station-mir", "source_quality": "NASA"},
+        {"fact": "The fire lasted roughly 14 minutes.", "source": "https://EN.wikipedia.com/wiki/Vika_oxygen_generator", "source_quality": "secondary"},
+        {"fact": "Burning metal globules were thrown into microgravity and splattered on the opposite bulkhead.", "source": "https://appel.nasa.gov/?p=279500", "source_quality": "NASA"}
+      ],
+      "changes_made": [
+        "Russia changed crew emergency training and ground controller response.",
+        "Candle safety improved and a fire-resistant screen was developed; SFOG now used on ISS with extra safety measures.",
+        "ISS oxygen supply has dissimilar redundancy (Elektron units + US Oxygen Generation System) with SFOG as backup."
+      ]
+    }
+  ],
+
+  "iss_fire_safety_hardware": [
+    {"item": "CO2 extinguishers in US segment; water-based foam in Russian segment", "source": "https://universetoday.com/100229/fire-how-the-mir-incident-changed-space-station-safety/amp"},
+    {"item": "Water mist portable extinguisher under development to replace Halon-type agents (Halon 1301 phased out due to the 1994 Montreal Protocol motivation)", "source": "https://ntrs.nasa.gov/api/citations/20170009414/downloads/20170009414.pdf"},
+    {"item": "Water mist project tested droplet size and water amount in ground and free-fall tests (2011-2016) for ISS scenarios: open cabin, rack, stored-energy O2 candle, elevated O2", "source": "https://ntrs.nasa.gov/api/citations/20170009414/downloads/20170009414.pdf"}
+  ],
+
+  "microgravity_fire_science_links": [
+    {"link": "No buoyancy: a candle flame is a small blue flame at the wick in space, not the tall yellow teardrop seen on Earth.", "source": "https://corpora.tika.apache.org/base/docs/govdocs1/640/640405.html"},
+    {"link": "Airflow matters more than on Earth: in microgravity the fan controls how much oxygen reaches the flame. A flame can be sustained or quenched by ventilation speed.", "source": "https://discovery.ucl.ac.uk/id/eprint/10164340/1/SIBAL-cotton%20revised%20Sept%20per%20review%20track%20changes%20accepted.pdf"},
+    {"link": "Low flow can extinguish flames: ISS thin-solid test went out when flow dropped to 2.2 cm/s at 18.7% O2 (see flameguard_compact_seed.json, record M3).", "source": "https://ntrs.nasa.gov/api/citations/20150000894/downloads/20150000894.pdf"},
+    {"link": "More oxygen means easier burning: spread rate rose with O2 and flow up to about 22%, and quenching flow speed fell as O2 rose.", "source": "https://par.nsf.gov/servlets/purl/10313745"}
+  ],
+
+  "design_takeaways": {
+    "label": "OUR interpretation of the sources above. Not official NASA procedure.",
+    "items": [
+      {"id": "T1", "takeaway": "Control the oxygen fraction and total pressure of the cabin; every incident above involved an oxygen-rich environment.", "evidence": ["APOLLO-1", "APOLLO-13", "MIR-1997"]},
+      {"id": "T2", "takeaway": "Reduce combustible materials and test them at the worst-case O2 and pressure, not only at normal air.", "evidence": ["APOLLO-1", "NASA-STD-6001 context"]},
+      {"id": "T3", "takeaway": "Protect wiring insulation and monitor heaters/electrics with instruments that read beyond normal range.", "evidence": ["APOLLO-13"]},
+      {"id": "T4", "takeaway": "Cutting ventilation can quench a flame (BASS B1, ISS thin-solid test) but does NOT help when the fire has its own oxygen source, like an oxygen candle. Treat it as one tool, not a rule.", "evidence": ["BASS-II B1", "MIR-1997"]},
+      {"id": "T5", "takeaway": "Keep escape routes clear of hazardous equipment and ensure quick egress; Mir's flame blocked the Soyuz route.", "evidence": ["MIR-1997", "APOLLO-1"]},
+      {"id": "T6", "takeaway": "Use personal protection (masks) and the right extinguisher agent for the segment; train crews and ground teams together.", "evidence": ["MIR-1997"]},
+      {"id": "T7", "takeaway": "Treat Earth-based flammability results with caution; microgravity changes flame shape and flow dependence.", "evidence": ["SAFFIRE vs BASS", "ground normoxic study"]}
+    ]
+  },
+
+  "additional_dataset_candidates": [
+    {"id": "WATER-MIST-PFE", "name": "Water Mist Portable Fire Extinguisher research (Colorado School of Mines / NASA)", "topic": "Fire suppression in spacecraft", "source": "https://ntrs.nasa.gov/api/citations/20170009414/downloads/20170009414.pdf", "data_status": "slides/report only, no CSV found"},
+    {"id": "BASS-II-SENSORS", "name": "BASS-II CSA-CP (O2, CO) and CDM (CO2) before/after readings", "topic": "Combustion completeness", "source": "https://ntrs.nasa.gov/api/citations/20150019858/downloads/20150019858.pdf", "data_status": "paper; tables may be extractable"},
+    {"id": "NTRS-SAFFIRE", "name": "SAFFIRE experiment papers and NTRS reports", "topic": "Large-scale spacecraft fire", "source": "https://ntrs.nasa.gov", "data_status": "search NTRS for SAFFIRE"}
+  ],
+
+  "data_gaps": [
+    "The NASA PSI search page (psi.nasa.gov/physci/repo/search) is rendered by JavaScript and returned no readable content to me. Download the CSV/JSON files from each investigation page manually, then import them via your Data Sources Lab.",
+    "No numeric tables were extracted for the water mist tests; add them only if you find the tables in the NTRS report.",
+    "Apollo 13 is not a microgravity cabin-fire dataset; keep it labeled as a lessons-learned case."
+  ]
+}

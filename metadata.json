@@ -1,0 +1,8 @@
+{
+  "name": "FlameGuard — NASA Microgravity Fire Intelligence Platform",
+  "description": "Scientific intelligence system transforming NASA microgravity combustion research (BASS-II, FLEX, SAFFIRE, SPICE, SAME-R) into interactive experiment analytics, prototype risk modeling, and citation-grounded AI synthesis.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

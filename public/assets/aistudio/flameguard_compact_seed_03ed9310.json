@@ -1,0 +1,55 @@
+{
+  "_meta": {
+    "name": "FlameGuard compact seed (key measurements + findings + dataset registry)",
+    "generated": "2026-11-14",
+    "integrity_rule": "Only values stated in the cited sources are filled in. Anything not found is null (missing_in_source). No fabricated measurements.",
+    "note": "Too few complete records for real ML training. Use for demo/validation; import NASA PSI CSVs for real training."
+  },
+
+  "datasets_registry": [
+    {"id": "BASS", "name": "Burning and Suppression of Solids", "platform": "ISS (MSG)", "topic": "Solid fuel burning and suppression", "source": "https://science.nasa.gov/physical-sciences-informatics-psi/nasa-psi-research-opportunity", "status": "existing"},
+    {"id": "BASS-II", "name": "Burning and Suppression of Solids - II", "platform": "ISS (MSG)", "topic": "Flame spread over PMMA/SIBAL; O2, flow, thickness, geometry", "source": "https://ntrs.nasa.gov/citations/20210011385", "status": "existing"},
+    {"id": "FLEX", "name": "Flame Extinguishment Experiment", "platform": "ISS (CIR)", "topic": "Droplet combustion, cool flames", "source": "https://science.nasa.gov/physical-sciences-informatics-psi/nasa-psi-research-opportunity", "status": "existing"},
+    {"id": "SAFFIRE-I/II/III", "name": "Spacecraft Fire Experiment I, II, III (IV also in literature)", "platform": "Cygnus (OA-6, OA-5, OA-7)", "topic": "Large-scale spacecraft fire spread", "source": "https://science.nasa.gov/physical-sciences-informatics-psi/nasa-psi-research-opportunity", "status": "existing"},
+    {"id": "SPICE", "name": "Smoke Point in Coflow Experiment", "platform": "ISS", "topic": "Smoke point, soot", "source": "https://science.nasa.gov/physical-sciences-informatics-psi/nasa-psi-research-opportunity", "status": "existing"},
+    {"id": "SAME", "name": "Smoke Aerosol Measurement Experiment", "platform": "ISS", "topic": "Smoke particle size/concentration", "source": "https://science.nasa.gov/physical-sciences-informatics-psi/nasa-psi-research-opportunity", "status": "NEW"},
+    {"id": "FLEX-2", "name": "Flame Extinguishment Experiment - 2", "platform": "ISS (CIR)", "topic": "Droplet burn rate, extinction conditions", "source": "https://science.nasa.gov/physical-sciences-informatics-psi/nasa-psi-research-opportunity", "status": "NEW"},
+    {"id": "CFI", "name": "Cool Flames Investigation", "platform": "ISS", "topic": "Cool flame transitions", "source": "https://science.nasa.gov/physical-sciences-informatics-psi/nasa-psi-research-opportunity", "status": "NEW"},
+    {"id": "ACME-sFlames", "name": "ACME: Structure and Response of Spherical Diffusion Flames", "platform": "ISS (CIR)", "topic": "Spherical diffusion flames", "source": "https://science.nasa.gov/physical-sciences-informatics-psi/nasa-psi-research-opportunity", "status": "NEW"},
+    {"id": "ACME-BRE", "name": "ACME: Burning Rate Emulator", "platform": "ISS (CIR)", "topic": "Burning rate of emulated fuels", "source": "https://science.nasa.gov/physical-sciences-informatics-psi/nasa-psi-research-opportunity", "status": "NEW"},
+    {"id": "ACME-CLD", "name": "ACME: Coflow Laminar Diffusion Flame", "platform": "ISS (CIR)", "topic": "Coflow diffusion flames, soot", "source": "https://science.nasa.gov/physical-sciences-informatics-psi/nasa-psi-research-opportunity", "status": "NEW"},
+    {"id": "ACME-EField", "name": "ACME: Electric Field Flames", "platform": "ISS (CIR)", "topic": "Electric field effects on flames", "source": "https://science.nasa.gov/physical-sciences-informatics-psi/nasa-psi-research-opportunity", "status": "NEW"},
+    {"id": "DAFT/DAFT-2", "name": "Dust and Aerosol Measurement Feasibility Test 1 and 2", "platform": "ISS", "topic": "Smoke/dust detector feasibility", "source": "https://science.nasa.gov/physical-sciences-informatics-psi/nasa-psi-research-opportunity", "status": "NEW"},
+    {"id": "SLICE", "name": "Structure and Liftoff in Combustion Experiment", "platform": "ISS", "topic": "Flame structure and liftoff", "source": "https://www.nationalacademies.org/cdn/materials/9fba0b5f-33a8-4c0c-951b-67dcb346b388", "status": "NEW"},
+    {"id": "SIBAL", "name": "Solid Inflammability Boundary at Low-Speed", "platform": "Ground/flight program", "topic": "Extinction boundary in O2 vs flow velocity", "source": "https://ntrs.nasa.gov/citations/20010073996", "status": "NEW"}
+  ],
+
+  "key_measurements": [
+    {"id": "M1", "experiment": "SAFFIRE-I (concurrent flow)", "material": "SIBAL", "gravity_condition": "Microgravity", "oxygen_pct": null, "pressure_kpa": null, "flow_velocity_cm_s": 20, "spread_rate_mm_s": 1.8, "outcome": "Sustained Flame", "source": "Ferkul, Saffire Experiment, 2017 US National Meeting (UCL discovery 10069823)"},
+    {"id": "M2", "experiment": "SAFFIRE-I (opposed flow)", "material": "SIBAL", "gravity_condition": "Microgravity", "oxygen_pct": null, "pressure_kpa": null, "flow_velocity_cm_s": 20, "flame_length_mm": 24, "outcome": "Sustained Flame", "source": "Same as M1"},
+    {"id": "M3", "experiment": "ISS thin-solid flame spread (sample 10 x 2.2 cm)", "material": null, "gravity_condition": "Microgravity", "oxygen_pct": 18.7, "pressure_kpa": 101.3, "flow_velocity_cm_s": 2.2, "outcome": "Extinction / No Ignition", "note": "Ignited at 5 cm/s, flow reduced to 2.2 cm/s, quenching extinction observed", "source": "NTRS 20150000894"},
+    {"id": "M4", "experiment": "ISS flame spread test (see source)", "material": null, "gravity_condition": "Microgravity", "oxygen_pct": 26.9, "pressure_kpa": 76.1, "flow_velocity_cm_s": 5, "outcome": null, "note": "Flow reduced to 5 cm/s for 300 s then switched off; 761 hPa", "source": "NTRS 20210017838"}
+  ],
+
+  "experiment_configs": [
+    {"experiment": "SAFFIRE-II", "material": "Silicone", "thickness": "0.33 mm", "flow_cm_s": 20, "outcome": null, "source": "NTRS 20150000894"},
+    {"experiment": "SAFFIRE-II", "material": "SIBAL fabric", "thickness": "0.33 mm", "flow_cm_s": 30, "outcome": null, "source": "NTRS 20150000894"},
+    {"experiment": "SAFFIRE-II", "material": "PMMA to Nomex", "thickness": "0.33 mm", "flow_cm_s": 20, "outcome": null, "source": "NTRS 20150000894"},
+    {"experiment": "SAFFIRE-II", "material": "Structured PMMA", "thickness": "10 mm", "flow_cm_s": 20, "outcome": null, "source": "NTRS 20150000894"},
+    {"experiment": "BASS-II", "material": "PMMA flat samples", "flow_range_cm_s": [0, 55], "oxygen_pct": "varied (N2 dilution)", "outcome": null, "source": "Fire Technology, doi 10.1007/s10694-019-00884-y"}
+  ],
+
+  "key_findings": [
+    {"id": "F1", "experiment": "BASS-II", "finding": "Main variables were ambient O2, flow velocity, fuel type, thickness and geometry; first ISS use of MSG dilution with N2.", "source": "https://ntrs.nasa.gov/citations/20210011385"},
+    {"id": "F2", "experiment": "BASS-II", "finding": "CO vs CO2 followed a linear trend for some datasets, not for all fuel geometries and flows (completeness of combustion).", "source": "https://ntrs.nasa.gov/citations/20210011385"},
+    {"id": "F3", "experiment": "BASS", "finding": "Spread rate increased with flow velocity and O2 up to about 22%. A low-speed quenching velocity exists and decreases as O2 rises.", "source": "https://par.nsf.gov/servlets/purl/10313745"},
+    {"id": "F4", "experiment": "SAFFIRE vs BASS", "finding": "Steady spread rates in large SAFFIRE samples were significantly lower than BASS at the same O2 and flow rate.", "source": "https://par.nsf.gov/servlets/purl/10313745"},
+    {"id": "F5", "experiment": "BASS / CFD", "finding": "Flame spread rate in a duct first rises then falls with decreasing duct height; below a limiting height the flame fails to spread (confinement and O2 depletion).", "source": "https://par.nsf.gov/servlets/purl/10313745"},
+    {"id": "F6", "experiment": "ISS thin solid", "finding": "At 18.7% O2 and 1 atm, reducing flow from 5 to 2.2 cm/s caused quenching extinction. Low flow is a shutdown mechanism.", "source": "https://ntrs.nasa.gov/api/citations/20150000894/downloads/20150000894.pdf"},
+    {"id": "F7", "experiment": "SAFFIRE-IV / SIBAL", "finding": "In microgravity the upstream fan controls O2 supply, unlike 1g where the flame entrains more air as it grows.", "source": "https://discovery.ucl.ac.uk/id/eprint/10164340/1/SIBAL-cotton%20revised%20Sept%20per%20review%20track%20changes%20accepted.pdf"},
+    {"id": "F8", "experiment": "FLEX", "finding": "Certain fuel droplets sustain long-lasting combustion without a visible flame (cool flames).", "source": "https://science.nasa.gov/uncategorized/collaborating-through-data-inside-the-psi-users-group/"},
+    {"id": "F9", "experiment": "Ground normoxic study", "finding": "At constant O2 partial pressure, raising O2 concentration influenced spread and flame length more than lowering pressure. Ground result; authors recommend microgravity tests.", "source": "https://core.ac.uk/download/483871309.pdf"},
+    {"id": "F10", "experiment": "SIBAL", "finding": "Goal: verify the predicted extinction boundary using O2 percentage and flow velocity as coordinates (low-speed quenching limit, critical O2 limit).", "source": "https://ntrs.nasa.gov/citations/20010073996"},
+    {"id": "F11", "experiment": "ISS cabin", "finding": "ISS cabin O2 usually varies between 21% and 22% day to day.", "source": "https://par.nsf.gov/servlets/purl/10313745"}
+  ]
+}
