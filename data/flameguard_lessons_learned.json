@@ -224,6 +224,34 @@
     }
   ],
 
+  "water_mist_sts107": {
+    "title": "The Water-Mist Fire Suppression Experiment (Mist): Preliminary Results from the STS-107 Mission",
+    "authors": "Angel Abbud-Madrid, J. Thomas McKinnon, Francine Amon (Colorado School of Mines CCACS); Suleyman Gokoglu (NASA Glenn Research Center)",
+    "publication": "NASA/CP—2003-212376/REV1 (pp. 281–284)",
+    "mission": "STS-107 Space Shuttle Columbia (January 2003), Combustion Module-2 (CM-2)",
+    "source": "https://ntrs.nasa.gov/citations/20040053582",
+    "local_pdf_path": "/assets/aistudio/20040053582_7c84d2d5.pdf",
+    "source_quality": "NASA",
+    "apparatus": {
+      "tube_dimensions": "6.3 cm diameter × 49.5 cm length transparent cylindrical tube",
+      "fuel_mixture": "Propane (C3H8) and air, isobaric combustion with dry ignition side separated by an iris from the ultrasonic mist section",
+      "diagnostics": "3 radial diode lasers + photodiode detectors (droplet concentration); 16 axial photodiodes + video camera (flame speed)"
+    },
+    "flight_test_matrix": {
+      "total_tests": 32,
+      "stoichiometries_phi": [0.6, 0.7, 1.0, 1.3],
+      "water_mass_fractions": "0 to 0.40",
+      "mean_droplet_sizes_um": [20, 30]
+    },
+    "numerical_and_flight_findings": [
+      "Pre-vaporized steam effect (CH4-air simulation): stoichiometric burning velocity dropped from ~39 cm/s (dry) to ~34 cm/s (100% relative humidity wet case).",
+      "Smaller droplets vaporize faster and suppress flames at substantially lower water mass loading than larger droplets (Figure 3 compares 10, 30, 50, 75, and 100 µm droplets, with an efficiency limit near ~10 µm).",
+      "In microgravity on STS-107, a uniform, quiescent mist cloud stayed suspended for several minutes (impossible at 1g or on the KC-135 airplane due to gravitational settling and jitter).",
+      "Leanest propane-air flames exhibited progressively lower burning velocities with higher water loadings and smaller droplet sizes (20 vs. 30 µm), ending in extinction at the highest water concentrations.",
+      "Stoichiometric and rich flames showed flame distortion and cellular breakup traversing the misted section, while lean mixtures exhibited pulsating flames at certain water loadings."
+    ]
+  },
+
   "data_gaps": [
     "Numerical droplet-size and water-flux tables from the 2011–2016 ISS water mist suppression tests (NTRS 20170009414) are not yet digitized into the FlameGuard SQLite dataset.",
     "Apollo 13 is cataloged as a historical oxygen-tank failure case study rather than an open-cabin microgravity combustion experiment.",

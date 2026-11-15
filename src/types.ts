@@ -297,6 +297,28 @@ export interface LessonsMeta {
   warning: string;
 }
 
+export interface WaterMistSts107Data {
+  title: string;
+  authors: string;
+  publication: string;
+  mission: string;
+  source: string;
+  local_pdf_path: string;
+  source_quality: string;
+  apparatus: {
+    tube_dimensions: string;
+    fuel_mixture: string;
+    diagnostics: string;
+  };
+  flight_test_matrix: {
+    total_tests: number;
+    stoichiometries_phi: number[];
+    water_mass_fractions: string;
+    mean_droplet_sizes_um: number[];
+  };
+  numerical_and_flight_findings: string[];
+}
+
 export interface LessonsLearnedData {
   _meta: LessonsMeta;
   incidents: LessonIncident[];
@@ -304,6 +326,7 @@ export interface LessonsLearnedData {
   microgravity_fire_science_links: MicrogravityFireScienceLink[];
   design_takeaways: DesignTakeaways;
   additional_dataset_candidates: AdditionalDatasetCandidate[];
+  water_mist_sts107?: WaterMistSts107Data;
   data_gaps: string[];
 }
 

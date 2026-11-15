@@ -642,6 +642,13 @@ export const LessonsFromFireScene: React.FC<Props> = ({ onNavigate }) => {
                   <div className="flex flex-wrap gap-2 shrink-0">
                     <button
                       type="button"
+                      onClick={() => setLowerTab("hardware")}
+                      className="px-3 py-1.5 text-xs font-medium bg-sky-500/15 border border-sky-500/45 text-sky-200 rounded hover:bg-sky-500/25"
+                    >
+                      STS-107 Water-Mist Study
+                    </button>
+                    <button
+                      type="button"
                       onClick={() => onNavigate("story")}
                       className="px-3 py-1.5 text-xs font-medium bg-amber-500 text-slate-950 rounded hover:bg-amber-400"
                     >
@@ -932,46 +939,176 @@ export const LessonsFromFireScene: React.FC<Props> = ({ onNavigate }) => {
 
         {/* 4. "WHAT SPACECRAFT USE TODAY" PANEL */}
         {lowerTab === "hardware" && (
-          <div className="bg-[#0D1424] border border-slate-800 rounded-xl p-5 space-y-4">
-            <div>
-              <h2 className="font-display text-lg font-bold text-slate-50">
-                What Spacecraft Use Today
-              </h2>
-              <p className="text-xs text-slate-400">
-                Current ISS extinguisher hardware and Halon replacement research documented in the sources.
-              </p>
-            </div>
-            <ul className="divide-y divide-slate-800">
-              {data.iss_fire_safety_hardware.map((hw, idx) => {
-                const isNasa = isNasaUrl(hw.source);
-                const Icon = idx === 0 ? Flame : idx === 1 ? Droplets : Sparkles;
-                return (
-                  <li
-                    key={idx}
-                    className="py-3.5 first:pt-0 last:pb-0 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
-                  >
-                    <div className="flex items-start gap-3">
-                      <div className="p-2 rounded-lg bg-[#070B14] border border-slate-800 text-sky-400 shrink-0">
-                        <Icon className="w-4 h-4" />
+          <div className="space-y-5">
+            <div className="bg-[#0D1424] border border-slate-800 rounded-xl p-5 space-y-4">
+              <div>
+                <h2 className="font-display text-lg font-bold text-slate-50">
+                  What Spacecraft Use Today
+                </h2>
+                <p className="text-xs text-slate-400">
+                  Current ISS extinguisher hardware and Halon replacement research documented in NASA sources.
+                </p>
+              </div>
+              <ul className="divide-y divide-slate-800">
+                {data.iss_fire_safety_hardware.map((hw, idx) => {
+                  const isNasa = isNasaUrl(hw.source);
+                  const Icon = idx === 0 ? Flame : idx === 1 ? Droplets : Sparkles;
+                  return (
+                    <li
+                      key={idx}
+                      className="py-3.5 first:pt-0 last:pb-0 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+                    >
+                      <div className="flex items-start gap-3">
+                        <div className="p-2 rounded-lg bg-[#070B14] border border-slate-800 text-sky-400 shrink-0">
+                          <Icon className="w-4 h-4" />
+                        </div>
+                        <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">{hw.item}.</p>
                       </div>
-                      <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">{hw.item}.</p>
+                      <div className="flex items-center gap-2 shrink-0 pl-10 sm:pl-0">
+                        <SourceQualityBadge quality={isNasa ? "NASA" : "secondary"} integrityRule={integrityRule} />
+                        <a
+                          href={hw.source}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-[11px] font-mono text-sky-400 hover:underline inline-flex items-center gap-1"
+                        >
+                          <span>Source</span>
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+
+            {data.water_mist_sts107 && (
+              <div className="bg-[#0D1424] border border-sky-500/40 rounded-xl p-5 space-y-4">
+                <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-3 border-b border-slate-800 pb-4">
+                  <div className="space-y-1">
+                    <div className="flex flex-wrap items-center gap-2 text-[11px] font-mono text-sky-300">
+                      <Droplets className="w-3.5 h-3.5" />
+                      <span>{data.water_mist_sts107.publication}</span>
+                      <span>·</span>
+                      <span>{data.water_mist_sts107.mission}</span>
                     </div>
-                    <div className="flex items-center gap-2 shrink-0 pl-10 sm:pl-0">
-                      <SourceQualityBadge quality={isNasa ? "NASA" : "secondary"} integrityRule={integrityRule} />
-                      <a
-                        href={hw.source}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-[11px] font-mono text-sky-400 hover:underline inline-flex items-center gap-1"
-                      >
-                        <span>Source</span>
-                        <ExternalLink className="w-3 h-3" />
-                      </a>
+                    <h3 className="font-display text-base sm:text-lg font-bold text-slate-50">
+                      {data.water_mist_sts107.title}
+                    </h3>
+                    <p className="text-xs text-slate-400">{data.water_mist_sts107.authors}</p>
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-2 shrink-0">
+                    <SourceQualityBadge
+                      quality={data.water_mist_sts107.source_quality}
+                      integrityRule={integrityRule}
+                    />
+                    <a
+                      href={data.water_mist_sts107.local_pdf_path}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="px-2.5 py-1 rounded bg-sky-500/15 border border-sky-500/45 text-[11px] font-mono text-sky-200 hover:bg-sky-500/25 inline-flex items-center gap-1"
+                    >
+                      <span>Open Flight Paper PDF</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                    <a
+                      href={data.water_mist_sts107.source}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="px-2.5 py-1 rounded bg-[#070B14] border border-slate-700 text-[11px] font-mono text-slate-300 hover:border-sky-400 inline-flex items-center gap-1"
+                    >
+                      <span>NTRS</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
+                </div>
+
+                {/* STS-107 Flight Matrix & Dry vs Wet Simulation Comparison */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+                  <div className="bg-[#070B14] border border-slate-800 rounded-lg p-3">
+                    <div className="text-slate-400">STS-107 Flight Tests</div>
+                    <div className="text-lg font-mono font-bold text-sky-300 mt-0.5 tabular-nums">
+                      {data.water_mist_sts107.flight_test_matrix.total_tests} runs
                     </div>
-                  </li>
-                );
-              })}
-            </ul>
+                  </div>
+                  <div className="bg-[#070B14] border border-slate-800 rounded-lg p-3">
+                    <div className="text-slate-400">Mean Droplet Sizes</div>
+                    <div className="text-lg font-mono font-bold text-slate-100 mt-0.5 tabular-nums">
+                      {data.water_mist_sts107.flight_test_matrix.mean_droplet_sizes_um.join(" & ")} µm
+                    </div>
+                  </div>
+                  <div className="bg-[#070B14] border border-slate-800 rounded-lg p-3">
+                    <div className="text-slate-400">Water Mass Fraction</div>
+                    <div className="text-lg font-mono font-bold text-slate-100 mt-0.5 tabular-nums">
+                      {data.water_mist_sts107.flight_test_matrix.water_mass_fractions}
+                    </div>
+                  </div>
+                  <div className="bg-[#070B14] border border-slate-800 rounded-lg p-3">
+                    <div className="text-slate-400">Equivalence Ratios (φ)</div>
+                    <div className="text-lg font-mono font-bold text-slate-100 mt-0.5 tabular-nums">
+                      {data.water_mist_sts107.flight_test_matrix.stoichiometries_phi.join(", ")}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Apparatus & Dry vs Wet Simulation Bar */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 text-xs">
+                  <div className="bg-[#070B14] border border-slate-800 rounded-lg p-3.5 space-y-2">
+                    <div className="font-semibold text-slate-100">CM-2 Flight Apparatus</div>
+                    <p className="text-slate-300">
+                      <span className="text-slate-400">Tube: </span>
+                      {data.water_mist_sts107.apparatus.tube_dimensions}
+                    </p>
+                    <p className="text-slate-300">
+                      <span className="text-slate-400">Mixture: </span>
+                      {data.water_mist_sts107.apparatus.fuel_mixture}
+                    </p>
+                    <p className="text-slate-300">
+                      <span className="text-slate-400">Diagnostics: </span>
+                      {data.water_mist_sts107.apparatus.diagnostics}
+                    </p>
+                  </div>
+
+                  <div className="bg-[#070B14] border border-slate-800 rounded-lg p-3.5 space-y-2.5">
+                    <div className="font-semibold text-slate-100">
+                      CH4–Air Steam Baseline Comparison (Reported p. 283)
+                    </div>
+                    <div className="space-y-1">
+                      <div className="flex justify-between font-mono text-[11px]">
+                        <span className="text-orange-300">Dry CH4–air flame speed</span>
+                        <span className="text-orange-300 tabular-nums">~39 cm/s</span>
+                      </div>
+                      <div className="h-2.5 bg-slate-900 rounded-full overflow-hidden border border-slate-800">
+                        <div className="h-full bg-orange-500 rounded-full" style={{ width: "100%" }} />
+                      </div>
+                    </div>
+                    <div className="space-y-1">
+                      <div className="flex justify-between font-mono text-[11px]">
+                        <span className="text-sky-300">Wet (100% RH) CH4–air flame speed</span>
+                        <span className="text-sky-300 tabular-nums">~34 cm/s</span>
+                      </div>
+                      <div className="h-2.5 bg-slate-900 rounded-full overflow-hidden border border-slate-800">
+                        <div className="h-full bg-sky-500 rounded-full" style={{ width: "87.2%" }} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Key Findings List */}
+                <ul className="space-y-2 text-xs text-slate-200">
+                  {data.water_mist_sts107.numerical_and_flight_findings.map((finding, i) => (
+                    <li
+                      key={i}
+                      className="bg-[#070B14] border border-slate-800 rounded-lg p-3 flex items-start gap-2.5 leading-relaxed"
+                    >
+                      <span className="font-mono text-sky-400 mt-0.5">{i + 1}.</span>
+                      <span>{finding}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         )}
 
